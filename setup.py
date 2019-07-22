@@ -8,7 +8,7 @@ DESCRIPTION = "Contains UNIX classes"
 with open("./README.md") as readme:
     long_description = readme.read()
 
-__version__ = "v0.1.0"
+__version__ = "v0.4.0"
 
 
 setup(
