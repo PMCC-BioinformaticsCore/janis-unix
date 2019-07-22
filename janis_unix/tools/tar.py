@@ -1,9 +1,8 @@
 #
 # Untar a file
-from janis import Array, ToolInput, ToolOutput, InputSelector, File, Filename
-from janis.unix.data_types.tarfile import TarFile
-from janis.unix.tools.unixtool import UnixTool
-
+from janis_core import Array, ToolInput, ToolOutput, InputSelector, File, Filename
+from ..data_types.tarfile import TarFile
+from .unixtool import UnixTool
 
 class Tar(UnixTool):
     @staticmethod

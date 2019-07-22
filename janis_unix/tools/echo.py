@@ -1,5 +1,5 @@
-from janis import String, ToolInput, ToolOutput, Stdout
-from janis.unix.tools.unixtool import UnixTool
+from janis_core import String, ToolInput, ToolOutput, Stdout
+from .unixtool import UnixTool
 
 
 class Echo(UnixTool):

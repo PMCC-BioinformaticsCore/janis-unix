@@ -4,9 +4,8 @@
 
 from typing import List
 
-from janis import ToolInput, ToolOutput, ToolArgument, WildcardSelector, File
-from janis.unix.tools.unixtool import UnixTool
-
+from janis_core import ToolInput, ToolOutput, ToolArgument, WildcardSelector, File
+from .unixtool import UnixTool
 
 class Compile(UnixTool):
     @staticmethod

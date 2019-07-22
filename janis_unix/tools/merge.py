@@ -1,5 +1,5 @@
-from janis import File, Array, ToolInput, ToolOutput, Stdout
-from janis.unix.tools.unixtool import UnixTool
+from janis_core import File, Array, ToolInput, ToolOutput, Stdout
+from .unixtool import UnixTool
 
 
 class Merge(UnixTool):

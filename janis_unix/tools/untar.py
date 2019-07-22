@@ -1,6 +1,6 @@
-from janis import Array, ToolInput, ToolOutput, WildcardSelector, File
-from janis.unix.data_types.tarfile import TarFile
-from janis.unix.tools.unixtool import UnixTool
+from janis_core import Array, ToolInput, ToolOutput, WildcardSelector, File
+from ..data_types.tarfile import TarFile
+from .unixtool import UnixTool
 
 
 class Untar(UnixTool):

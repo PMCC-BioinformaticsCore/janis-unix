@@ -1,4 +1,4 @@
-from janis.types.common_data_types import File
+from janis_core import File
 
 
 class TarFile(File):
