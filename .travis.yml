@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.6'
+install: true
+script: echo "Deploying Janis-Unix"
+deploy:
+  provider: pypi
+  user: illusional
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    repo: PMCC-BioinformaticsCore/janis-bioinformatics
+  password:
+    secure: aXFXB3/4k1nanvv6COmCUTIS5Y+sXHmPz6dDUwmcF037tamWMUW+4q7dTgZqcEVZ4tcAWwcujR3ph8JMhLFp4BuArrONcstFXh20U35kkO0XrADR6NQOClRbIfHQ66gQQI/k3keha45ZAeErWNN+CZYawiinp2Pxm54HDI+LHvG6gGKpmYMVT0dJI5zQEzB8xwL6VriMwPmzwpeNe0x36ZpNqOjhqx9FYRKckZqOVX8+kRr62Zwu5xe1NjVJnXdNGNiBYxPu+Mpblw98CoO2mn7mGPMd820B8DKBRu8lHQBTHBftHkK6muG0zpACESyqXlbInsUMObVsn4MzW9VUBm8Hdd0CSgpE/iuGylnDPJKDtbISTj3Vkybkupzsau6t8tSoNnlBCLN4gXBXcdGiTesQHxDJiEqonh5QhOuX7ZEPRCSGc+Vg61hBjbZeHoKEg9iOgiagrKvVj/2Gt8nCqsaAC/1M0AIyOT7fQmbqQ7xpioV/WtNxyY6WlQWnaUqU924uncuDTsF8En+Up5L68nQ3KHufXEztXMh1Eu9hDRVScQjKykSrhGgn8nbiSA+rqtKJ7koaLHssk6k7WYFLCrNPuH+1QXGwevmE1nu1SLs9BbP28AIODg5E1cGAb/aMPVD2J8C6uXw96ensqD1WmMSAB7POTMufeFtZcmQco/E=
