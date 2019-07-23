@@ -9,7 +9,7 @@ class Untar(UnixTool):
         return "untar"
 
     def friendly_name(self):
-        return "Untar archive"
+        return "Tar (unarchive)"
 
     @staticmethod
     def base_command():

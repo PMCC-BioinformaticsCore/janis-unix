@@ -10,7 +10,7 @@ class Tar(UnixTool):
         return "Tar"
 
     def friendly_name(self):
-        return "Tar archive"
+        return "Tar (archive)"
 
     @staticmethod
     def base_command():

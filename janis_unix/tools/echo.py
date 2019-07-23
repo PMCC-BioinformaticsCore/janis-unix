@@ -8,7 +8,7 @@ class Echo(UnixTool):
         return "echo"
 
     def friendly_name(self):
-        return "Echo - Print to console"
+        return "Echo"
 
     @staticmethod
     def base_command():
