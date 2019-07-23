@@ -1,15 +1,17 @@
 from setuptools import setup, find_packages
 
 # Version information is found in the __init__ file of `janiscore/`
-DESCRIPTION = "Contains UNIX classes"
+DESCRIPTION = "Unix tools and data types for Janis"
 
 ######## SHOULDN'T NEED EDITS BELOW THIS LINE ########
 
 with open("./README.md") as readme:
     long_description = readme.read()
 
-__version__ = "v0.4.0"
-
+vsn = {}
+with open("./janis_unix/__meta__.py") as fp:
+    exec(fp.read(), vsn)
+__version__ = vsn["__version__"]
 
 setup(
     name="janis-pipelines.unix",

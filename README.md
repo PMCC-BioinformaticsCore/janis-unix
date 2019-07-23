@@ -1,8 +1,8 @@
 # Janis - Unix
 
-[![Documentation Status](https://readthedocs.org/projects/janis/badge/?version=latest)](https://janis.readthedocs.io/en/latest/tools/bioinformatics/index.html)
-[![Build Status](https://travis-ci.org/PMCC-BioinformaticsCore/janis-bioinformatics.svg?branch=master)](https://travis-ci.org/PMCC-BioinformaticsCore/janis-bioinformatics)
-[![PyPI version](https://badge.fury.io/py/janis-pipelines.bioinformatics.svg)](https://badge.fury.io/py/janis-pipelines.bioinformatics)
+[![Documentation Status](https://readthedocs.org/projects/janis/badge/?version=latest)](https://janis.readthedocs.io/en/latest/tools/unix/index.html)
+[![Build Status](https://travis-ci.org/PMCC-BioinformaticsCore/janis-unix.svg?branch=master)](https://travis-ci.org/PMCC-BioinformaticsCore/janis-bioinformatics)
+[![PyPI version](https://badge.fury.io/py/janis-pipelines.unix.svg)](https://badge.fury.io/py/janis-pipelines.bioinformatics)
 
 This repository contains common unix tools and data types for [Janis](https://github.com/PMCC-BioinformaticsCore/janis).
 
