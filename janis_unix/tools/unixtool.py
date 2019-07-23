@@ -11,3 +11,7 @@ class UnixTool(CommandTool, ABC):
     @staticmethod
     def docker():
         return "ubuntu:latest"
+
+    @staticmethod
+    def version():
+        return "latest"
