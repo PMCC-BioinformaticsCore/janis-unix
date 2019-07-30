@@ -9,7 +9,7 @@ class UnixTool(CommandTool, ABC):
         return "unix"
 
     @staticmethod
-    def docker():
+    def container():
         return "ubuntu:latest"
 
     @staticmethod

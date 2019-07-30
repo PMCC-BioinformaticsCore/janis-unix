@@ -20,7 +20,7 @@ class Compile(UnixTool):
         return "javac"
 
     @staticmethod
-    def docker():
+    def container():
         return "openjdk:8"
 
     def arguments(self) -> List[ToolArgument]:
