@@ -18,8 +18,8 @@ class Tar(UnixTool):
 
     def inputs(self):
         return [
-            ToolInput("files", Array(File()), position=2),
-            ToolInput("files2", Array(File(), optional=True), position=3),
+            ToolInput("files", Array(File()), position=2, localise_file=True),
+            ToolInput("files2", Array(File(), optional=True), position=3, localise_file=True),
             ToolInput("outputFilename", Filename(extension=".tar"), position=1),
         ]
 
