@@ -14,4 +14,4 @@ class UnixTool(CommandTool, ABC):
 
     @staticmethod
     def version():
-        return "latest"
+        return "v1.0.0"
