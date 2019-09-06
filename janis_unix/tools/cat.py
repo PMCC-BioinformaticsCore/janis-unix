@@ -44,11 +44,10 @@ class Cat(UnixTool):
     def outputs(self):
         return [ToolOutput("out", Stdout())]
 
-    def metadata(self):
+    def bind_metadata(self):
 
-        meta = self._metadata or ToolMetadata()
-        meta.dateUpdated = datetime(2019, 7, 26)
-        meta.documentation = """\
+        self.metadata.dateUpdated = datetime(2019, 7, 26)
+        self.metadata.documentation = """\
 The cat utility reads files sequentially, writing them to the standard output. The file operands are processed in \
 command-line order. If file is a single dash (`-') or absent,cat reads from the standard input. If file is a UNIX \
 domain socket, cat connects to it and then reads it until EOF. This complements the UNIX domain binding capability \
