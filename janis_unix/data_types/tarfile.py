@@ -13,7 +13,7 @@ class TarFile(File):
 class TarFileGz(File):
     @staticmethod
     def name():
-        return "Compressed TarFile"
+        return "CompressedTarFile"
 
     def doc(self):
         return "A gzipped tarfile"
