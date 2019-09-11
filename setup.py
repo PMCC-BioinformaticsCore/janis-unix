@@ -24,7 +24,7 @@ setup(
     keywords=["pipelines", "bioinformatics", "workflows"],
     packages=["janis_unix"]
     + ["janis_unix." + p for p in sorted(find_packages("./janis_unix"))],
-    install_requires=["janis-pipelines.core"],
+    install_requires=["janis-pipelines.core>=0.6.0"],
     entry_points={
         "janis.extension": ["unix=janis_unix"],
         "janis.tools": ["unix=janis_unix.tools"],
