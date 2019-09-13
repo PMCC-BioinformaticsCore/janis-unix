@@ -18,7 +18,7 @@ class Echo(UnixTool):
         return [
             ToolInput("inp", String(), position=1),
             ToolInput(
-                "includeNewline",
+                "include_newline",
                 Boolean(optional=True),
                 prefix="-n",
                 doc="Do not print the trailing newline character.  This may also be achieved by appending `\c' to "
