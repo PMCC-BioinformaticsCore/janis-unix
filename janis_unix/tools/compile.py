@@ -7,10 +7,11 @@ from typing import List
 from janis_core import ToolInput, ToolOutput, ToolArgument, WildcardSelector, File
 from .unixtool import UnixTool
 
+
 class Compile(UnixTool):
     @staticmethod
     def tool():
-        return "javaCompiler"
+        return "javacompiler"
 
     def friendly_name(self):
         return "Java compiler"

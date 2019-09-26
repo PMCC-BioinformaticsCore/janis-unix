@@ -10,6 +10,14 @@ class TarFile(File):
         return "A tarfile, ending with .tar"
 
 
+class TarFileGz(File):
+    @staticmethod
+    def name():
+        return "CompressedTarFile"
+
+    def doc(self):
+        return "A gzipped tarfile"
+
 # tar_file = InputType('tar_file', label='a unix tar archive', description='A unix compressed or uncompressed tar archive')
 #
 #

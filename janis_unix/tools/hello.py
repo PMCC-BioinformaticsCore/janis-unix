@@ -5,13 +5,13 @@ from .echo import Echo
 
 
 class HelloWorkflow(j.Workflow):
-    def __init__(self):
-        super().__init__("hello", doc="A simple hello world example")
+    def constructor(self):
+        self.input("inp", j.String(optional=True), default="Hello, world!")
+        self.step("hello", Echo(inp=self.inp))
+        self.output("out", source=self.hello, output_tag="test")
 
-        inp = j.Input("inp", j.String(optional=True), default="Hello, world!")
-        echo = j.Step("hello", tool=Echo())
-        self.add_edge(inp, echo.inp)
-        self.add_edge(echo.out, j.Output("out"))
+    def id(self):
+        return "hello"
 
     def friendly_name(self):
         return "Hello, World!"
@@ -20,14 +20,14 @@ class HelloWorkflow(j.Workflow):
     def tool_module():
         return "unix"
 
-    def metadata(self):
-        meta = self._metadata
+    def bind_metadata(self):
 
-        meta.version = "v1.0.0"
-        meta.maintainer = "Michael Franklin"
-        meta.dateUpdated = date(2019, 8, 12)
+        self.metadata.version = "v1.0.0"
+        self.metadata.author = "Michael Franklin"
+        self.metadata.maintainer = "Michael Franklin"
+        self.metadata.dateUpdated = date(2019, 8, 12)
 
-        meta.documentation = """\
+        self.metadata.documentation = """\
 This is the 'Hello, world' equivalent workflow that uses the Echo unix
 tool to log "Hello, World!" to the console, and collects the result.
 
@@ -36,4 +36,6 @@ This is designed to be the first example that you can run with janis, ie:
 ``janis run hello``
 """
 
-        return meta
+
+if __name__ == "__main__":
+    print(HelloWorkflow().translate("cwl"))
