@@ -23,6 +23,7 @@ class HelloWorkflow(j.Workflow):
     def bind_metadata(self):
 
         self.metadata.version = "v1.0.0"
+        self.metadata.author = "Michael Franklin"
         self.metadata.maintainer = "Michael Franklin"
         self.metadata.dateUpdated = date(2019, 8, 12)
 
