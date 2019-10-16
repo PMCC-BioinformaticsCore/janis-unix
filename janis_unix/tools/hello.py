@@ -1,14 +1,14 @@
 from datetime import date
 
 import janis_core as j
-from .echo import Echo
+from janis_unix.tools.echo import Echo
 
 
 class HelloWorkflow(j.Workflow):
     def constructor(self):
         self.input("inp", j.String(optional=True), default="Hello, world!")
         self.step("hello", Echo(inp=self.inp))
-        self.output("out", source=self.hello, output_tag="test")
+        self.output("out", source=self.hello)
 
     def id(self):
         return "hello"
@@ -23,8 +23,7 @@ class HelloWorkflow(j.Workflow):
     def bind_metadata(self):
 
         self.metadata.version = "v1.0.0"
-        self.metadata.author = "Michael Franklin"
-        self.metadata.maintainer = "Michael Franklin"
+        self.metadata.contributors = ["Michael Franklin"]
         self.metadata.dateUpdated = date(2019, 8, 12)
 
         self.metadata.documentation = """\

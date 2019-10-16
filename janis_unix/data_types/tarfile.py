@@ -18,6 +18,7 @@ class TarFileGz(File):
     def doc(self):
         return "A gzipped tarfile"
 
+
 # tar_file = InputType('tar_file', label='a unix tar archive', description='A unix compressed or uncompressed tar archive')
 #
 #
