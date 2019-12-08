@@ -5,15 +5,13 @@ from .unixtool import UnixTool
 
 
 class Cat(UnixTool):
-    @staticmethod
-    def tool():
+    def tool(self):
         return "cat"
 
     def friendly_name(self):
         return "Concatenate"
 
-    @staticmethod
-    def base_command():
+    def base_command(self):
         return "cat"
 
     def inputs(self):

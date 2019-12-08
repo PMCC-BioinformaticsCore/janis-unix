@@ -4,22 +4,23 @@ from janis_core import Array, ToolInput, ToolOutput, InputSelector, File, Filena
 from ..data_types.tarfile import TarFile
 from .unixtool import UnixTool
 
+
 class Tar(UnixTool):
-    @staticmethod
-    def tool():
+    def tool(self):
         return "Tar"
 
     def friendly_name(self):
         return "Tar (archive)"
 
-    @staticmethod
-    def base_command():
+    def base_command(self):
         return ["tar", "cvf"]
 
     def inputs(self):
         return [
             ToolInput("files", Array(File()), position=2, localise_file=True),
-            ToolInput("files2", Array(File(), optional=True), position=3, localise_file=True),
+            ToolInput(
+                "files2", Array(File(), optional=True), position=3, localise_file=True
+            ),
             ToolInput("outputFilename", Filename(extension=".tar"), position=1),
         ]
 

@@ -4,15 +4,13 @@ from .unixtool import UnixTool
 
 
 class Untar(UnixTool):
-    @staticmethod
-    def tool():
+    def tool(self):
         return "untar"
 
     def friendly_name(self):
         return "Tar (unarchive)"
 
-    @staticmethod
-    def base_command():
+    def base_command(self):
         return ["tar", "xf"]
 
     def inputs(self):

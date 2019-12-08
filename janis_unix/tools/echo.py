@@ -3,15 +3,13 @@ from .unixtool import UnixTool
 
 
 class Echo(UnixTool):
-    @staticmethod
-    def tool():
+    def tool(self):
         return "echo"
 
     def friendly_name(self):
         return "Echo"
 
-    @staticmethod
-    def base_command():
+    def base_command(self):
         return "echo"
 
     def inputs(self):

@@ -16,8 +16,7 @@ class HelloWorkflow(j.Workflow):
     def friendly_name(self):
         return "Hello, World!"
 
-    @staticmethod
-    def tool_module():
+    def tool_module(self):
         return "unix"
 
     def bind_metadata(self):

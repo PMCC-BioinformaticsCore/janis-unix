@@ -4,14 +4,11 @@ from janis_core import CommandTool
 
 
 class UnixTool(CommandTool, ABC):
-    @staticmethod
-    def tool_module():
+    def tool_module(self):
         return "unix"
 
-    @staticmethod
-    def container():
+    def container(self):
         return "ubuntu:latest"
 
-    @staticmethod
-    def version():
+    def version(self):
         return "v1.0.0"
