@@ -9,19 +9,16 @@ from .unixtool import UnixTool
 
 
 class Compile(UnixTool):
-    @staticmethod
-    def tool():
+    def tool(self):
         return "javacompiler"
 
     def friendly_name(self):
         return "Java compiler"
 
-    @staticmethod
-    def base_command():
+    def base_command(self):
         return "javac"
 
-    @staticmethod
-    def container():
+    def container(self):
         return "openjdk:8"
 
     def arguments(self) -> List[ToolArgument]:
