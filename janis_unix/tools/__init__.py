@@ -4,3 +4,4 @@ from .echo import Echo
 from .tar import Tar
 from .untar import Untar
 from .hello import HelloWorkflow
+from .greet import Greet
