@@ -2,6 +2,9 @@ from janis_core import File
 
 
 class TarFile(File):
+    def __init__(self, optional=None):
+        super().__init__(optional=optional, extension=".tar")
+
     @staticmethod
     def name():
         return "TarFile"
@@ -11,6 +14,9 @@ class TarFile(File):
 
 
 class TarFileGz(File):
+    def __init__(self, optional=None):
+        super().__init__(optional=optional, extension=".tar.gz")
+
     @staticmethod
     def name():
         return "CompressedTarFile"
