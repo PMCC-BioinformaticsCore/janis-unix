@@ -1,3 +1,4 @@
+from .awk import Awk
 from .cat import Cat
 from .compile import Compile
 from .echo import Echo
