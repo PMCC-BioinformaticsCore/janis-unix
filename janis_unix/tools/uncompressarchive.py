@@ -1,12 +1,5 @@
 from .unixtool import UnixTool
-from janis_core import (
-    ToolOutput,
-    ToolInput,
-    Boolean,
-    Stdout,
-    String,
-    File
-)
+from janis_core import ToolOutput, ToolInput, Boolean, Stdout, String, File
 
 
 class UncompressArchive(UnixTool):

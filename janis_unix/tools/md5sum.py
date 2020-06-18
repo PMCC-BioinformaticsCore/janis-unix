@@ -1,6 +1,15 @@
 from datetime import datetime
 
-from janis_core import ToolArgument, ToolInput, ToolOutput, Stdout, Array, File, ToolMetadata, Boolean
+from janis_core import (
+    ToolArgument,
+    ToolInput,
+    ToolOutput,
+    Stdout,
+    Array,
+    File,
+    ToolMetadata,
+    Boolean,
+)
 from .unixtool import UnixTool
 
 
@@ -15,9 +24,7 @@ class MD5Sum(UnixTool):
         return "md5sum"
 
     def inputs(self):
-        return [
-            ToolInput("input_file", File(), position=1)
-        ]
+        return [ToolInput("input_file", File(), position=1)]
 
     def arguments(self):
         return [ToolArgument("| awk '{print $1}'", position=2, shell_quote=False)]
@@ -27,4 +34,6 @@ class MD5Sum(UnixTool):
 
     def bind_metadata(self):
         self.metadata.dateUpdated = datetime(2020, 6, 9)
-        self.metadata.documentation = "Compute the MD5 message digest of the given file."
+        self.metadata.documentation = (
+            "Compute the MD5 message digest of the given file."
+        )
