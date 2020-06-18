@@ -43,20 +43,20 @@ class Cat(UnixTool):
                 doc="Squeeze multiple adjacent empty lines, causing the output to be single spaced.",
             ),
             ToolInput(
-                "display_nonprint_chars",
+                "display_nonprint_and_eol_chars",
                 Boolean(optional=True),
                 prefix="-e",
                 doc="Display non-printing characters (see the -v option), and display "
                 "a dollar sign (`$') at the end of each line.",
             ),
             ToolInput(
-                "display_non",
+                "display_nonprint_and_tab_chars",
                 Boolean(optional=True),
                 prefix="-t",
                 doc="Display non-printing characters (see the -v option), and display tab characters as `^I'.",
             ),
             ToolInput(
-                "number_non_blank",
+                "display_nonprint_chars",
                 Boolean(optional=True),
                 prefix="-v",
                 doc="Display non-printing characters so they are visible.  Control characters print as `^X' for "
