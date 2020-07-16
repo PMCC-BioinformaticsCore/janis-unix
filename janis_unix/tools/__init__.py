@@ -8,4 +8,4 @@ from .tar import Tar
 from .untar import Untar
 from .hello import HelloWorkflow
 
-# from .uncompressarchive import UncompressArchive
+from .uncompressarchive import UncompressArchive
