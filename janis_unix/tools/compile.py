@@ -28,4 +28,8 @@ class Compile(UnixTool):
         return [ToolInput("file", File(), position=1)]
 
     def outputs(self):
-        return [ToolOutput("out", File(), glob=WildcardSelector("*.class"))]
+        return [
+            ToolOutput(
+                "out", File(), glob=WildcardSelector("*.class", select_first=True)
+            )
+        ]
