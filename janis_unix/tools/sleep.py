@@ -1,4 +1,12 @@
-from janis_core import Int, ToolInput, ToolOutput, Stdout, Boolean, ToolMetadata
+from janis_core import (
+    Int,
+    ToolInput,
+    ToolOutput,
+    Stdout,
+    Boolean,
+    ToolMetadata,
+    InputSelector,
+)
 from .unixtool import UnixTool
 
 
@@ -22,3 +30,6 @@ class Sleep(UnixTool):
 
     def bind_metadata(self):
         self.metadata.documentation = """sleep for the given number of seconds"""
+
+    def time(self, hints):
+        return InputSelector("time") + 30

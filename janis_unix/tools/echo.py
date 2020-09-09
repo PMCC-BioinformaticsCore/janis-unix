@@ -37,3 +37,6 @@ and followed by a newline (`\n') character, to the standard output.
 
 Some shells may provide a builtin echo command which is similar or identical to this utility. \
 Most notably, the builtin echo in sh(1) does not accept the -n option. Consult the builtin(1) manual page."""
+
+    def time(self, hints):
+        return 60  # seconds
