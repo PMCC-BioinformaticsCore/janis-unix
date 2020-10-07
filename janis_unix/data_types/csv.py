@@ -1,7 +1,9 @@
 from janis_core import File
 
+from janis_unix.data_types.text import TextFile
 
-class Csv(File):
+
+class Csv(TextFile):
     def __init__(self, optional=False, extension=".csv"):
         super().__init__(optional, extension=extension)
 
