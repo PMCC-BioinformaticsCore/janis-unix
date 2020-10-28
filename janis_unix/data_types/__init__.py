@@ -5,3 +5,4 @@ from .tsv import Tsv
 from .zipfile import ZipFile
 from .text import TextFile
 from .html import HtmlFile
+from .gunzipped import Gunzipped

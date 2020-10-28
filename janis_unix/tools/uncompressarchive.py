@@ -1,6 +1,8 @@
 from .unixtool import UnixTool
 from janis_core import ToolOutput, ToolInput, Boolean, Stdout, String, File
 
+from janis_unix.data_types import Gunzipped
+
 
 class UncompressArchive(UnixTool):
     def tool(self):
@@ -13,10 +15,10 @@ class UncompressArchive(UnixTool):
         return "gunzip"
 
     def inputs(self):
-        return [ToolInput("file", File(), position=1), *self.additional_inputs]
+        return [ToolInput("file", Gunzipped(), position=1), *self.additional_inputs]
 
     def outputs(self):
-        return [ToolOutput("out", Stdout(),)]
+        return [ToolOutput("out", Stdout(File))]
 
     additional_inputs = [
         ToolInput(
