@@ -1,5 +1,14 @@
+from datetime import datetime
 from .unixtool import UnixTool
-from janis_core import ToolOutput, ToolInput, Boolean, Stdout, String, File
+from janis_core import (
+    ToolOutput,
+    ToolInput,
+    Boolean,
+    Stdout,
+    String,
+    File,
+    ToolMetadata,
+)
 
 from janis_unix.data_types import Gunzipped
 
@@ -10,6 +19,9 @@ class UncompressArchive(UnixTool):
 
     def friendly_name(self):
         return "UncompressArchive"
+
+    def tool_provider(self):
+        return "GNU Project"
 
     def base_command(self):
         return "gunzip"
@@ -89,3 +101,11 @@ class UncompressArchive(UnixTool):
             doc="Make rsync-friendly archive",
         ),
     ]
+
+    def bind_metadata(self):
+        return ToolMetadata(
+            contributors=["Jiaan Yu"],
+            dateCreated=datetime(2020, 6, 11),
+            dateUpdated=datetime(2020, 6, 11),
+            documentation="",
+        )
