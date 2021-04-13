@@ -24,6 +24,7 @@ class TextFile(File):
         min_required_content: Optional[str] = None,
         line_count: Optional[int] = None,
         md5: Optional[str] = None,
+        expected_file_path: Optional[str] = None,
     ) -> List[TTestExpectedOutput]:
         outcome = [
             TTestExpectedOutput(
@@ -61,6 +62,18 @@ class TextFile(File):
                     preprocessor=TTestPreprocessor.FileMd5,
                     operator=operator.eq,
                     expected_value=md5,
+                ),
+            ]
+
+        if expected_file_path is not None:
+            with open(expected_file_path, "r") as f:
+                expected_content = f.read()
+            outcome += [
+                TTestExpectedOutput(
+                    tag=tag,
+                    preprocessor=TTestPreprocessor.FileContent,
+                    operator=operator.eq,
+                    expected_value=expected_content,
                 ),
             ]
 
