@@ -1,4 +1,13 @@
+import operator
+import os
 from datetime import datetime
+
+from janis_core.tool.test_classes import (
+    TTestCase,
+    TTestExpectedOutput,
+    TTestPreprocessor,
+)
+
 from .unixtool import UnixTool
 from janis_core import (
     ToolOutput,
@@ -109,3 +118,27 @@ class UncompressArchive(UnixTool):
             dateUpdated=datetime(2020, 6, 11),
             documentation="",
         )
+
+    def tests(self):
+        return [
+            TTestCase(
+                name="basic",
+                input={
+                    "file": "https://swift.rc.nectar.org.au/v1/AUTH_4df6e734a509497692be237549bbe9af/janis-test-data/bioinformatics/petermac_testdata/1000G_phase1.snps.high_confidence.hg38.BRCA1.vcf.gz",
+                },
+                output=[
+                    TTestExpectedOutput(
+                        tag="out",
+                        preprocessor=TTestPreprocessor.FileSize,
+                        operator=operator.eq,
+                        expected_value=160525,
+                    ),
+                    TTestExpectedOutput(
+                        tag="out",
+                        preprocessor=TTestPreprocessor.LineCount,
+                        operator=operator.eq,
+                        expected_value=625,
+                    ),
+                ],
+            )
+        ]
