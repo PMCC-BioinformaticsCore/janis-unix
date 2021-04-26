@@ -66,14 +66,12 @@ class TextFile(File):
             ]
 
         if expected_file_path is not None:
-            with open(expected_file_path, "r") as f:
-                expected_content = f.read()
             outcome += [
                 TTestExpectedOutput(
                     tag=tag,
                     preprocessor=TTestPreprocessor.FileContent,
                     operator=operator.eq,
-                    expected_value=expected_content,
+                    expected_file=expected_file_path,
                 ),
             ]
 
