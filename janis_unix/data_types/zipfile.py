@@ -41,22 +41,3 @@ class ZipFile(File):
                 ),
             ]
         return outcome
-
-    @classmethod
-    def array_wrapper(
-        cls,
-        tag: str,
-        test: Callable,
-        list_size: int,
-        expected_values: Optional[Dict] = {},
-    ) -> List[TTestExpectedOutput]:
-        outcome = []
-        for i in range(list_size):
-            expected_values_for_one_file = {}
-            for j in expected_values.keys():
-                expected_values_for_one_file[j] = expected_values[j][i]
-            try:
-                outcome += test(tag=tag, array_index=i, **expected_values_for_one_file)
-            except TypeError:
-                print("Wrong arguments passed to " + test.__name__)
-        return outcome
