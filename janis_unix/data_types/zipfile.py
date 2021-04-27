@@ -22,7 +22,6 @@ class ZipFile(File):
         tag: str,
         min_size: int,
         md5: Optional[str] = None,
-        array_index: Optional[int] = None,
     ) -> List[TTestExpectedOutput]:
         outcome = [
             TTestExpectedOutput(
@@ -30,7 +29,6 @@ class ZipFile(File):
                 preprocessor=TTestPreprocessor.FileSize,
                 operator=operator.ge,
                 expected_value=min_size,
-                array_index=array_index,
             ),
         ]
         if md5 is not None:
@@ -40,7 +38,6 @@ class ZipFile(File):
                     preprocessor=TTestPreprocessor.FileMd5,
                     operator=operator.eq,
                     expected_value=md5,
-                    array_index=array_index,
                 ),
             ]
         return outcome
