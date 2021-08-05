@@ -13,10 +13,10 @@ from janis_core import (
     ToolOutput,
     ToolInput,
     Boolean,
-    Stdout,
     String,
     File,
     ToolMetadata,
+    InputSelector,
 )
 
 from janis_unix.data_types import Gunzipped
@@ -36,20 +36,32 @@ class UncompressArchive(UnixTool):
         return "gunzip"
 
     def inputs(self):
-        return [ToolInput("file", Gunzipped(), position=1), *self.additional_inputs]
+        return [
+            ToolInput("file", Gunzipped(), position=1, localise_file=True),
+            *self.additional_inputs,
+        ]
 
     def outputs(self):
-        return [ToolOutput("out", Stdout(File))]
+        return [
+            ToolOutput(
+                "out", File, glob=InputSelector("file", remove_file_extension=True)
+            )
+        ]
 
     additional_inputs = [
         ToolInput(
             "stdout",
             Boolean(optional=True),
             prefix="-c",
-            default=True,
             doc="write on standard output, keep original files unchanged",
         ),
-        ToolInput("decompress", Boolean(optional=True), prefix="-d", doc="decompress"),
+        ToolInput(
+            "decompress",
+            Boolean(optional=True),
+            prefix="-d",
+            default=True,
+            doc="decompress",
+        ),
         ToolInput(
             "force",
             Boolean(optional=True),
