@@ -6,7 +6,7 @@
 
 This repository contains common unix tools and data types for [Janis](https://github.com/PMCC-BioinformaticsCore/janis).
 
-Refer to the [documentation](https://janis.readthedocs.io/en/latest/tools/bioinformatics/index.html).
+Refer to the [documentation](https://janis.readthedocs.io/en/latest/tools/unix/index.html).
 
 
 ## Data types
