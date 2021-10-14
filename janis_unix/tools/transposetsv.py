@@ -42,17 +42,23 @@ class TransposeTsv(UnixTool):
     def arguments(self):
         return [
             ToolArgument(
-                'echo "BEGIN { FS=OFS="\t" }\
-{ printf "%s%s", (FNR>1 ? OFS : ""), $ARGIND }\
-ENDFILE {\
-    print ""\
-    if (ARGIND < NF) {\
-        ARGV[ARGC] = FILENAME\
-        ARGC++\
-    }\
-}" > tst.awk;',
+                'echo \'BEGIN { FS=OFS="\t" }\n\
+{ \n\
+    for (rowNr=1;rowNr<=NF;rowNr++) {\n\
+        cell[rowNr,NR] = $rowNr\n\
+    }\n\
+    maxRows = (NF > maxRows ? NF : maxRows)\n\
+    maxCols = NR\n\
+}\n\
+END {\n\
+    for (rowNr=1;rowNr<=maxRows;rowNr++) {\n\
+        for (colNr=1;colNr<=maxCols;colNr++) {\n\
+            printf "%s%s", cell[rowNr,colNr], (colNr < maxCols ? OFS : ORS)\n\
+        }\n\
+    }\n\
+}\' > tst.awk;',
                 position=0,
-                shell_quote=True,
+                shell_quote=False,
             ),
             ToolArgument("awk -f tst.awk ", position=1, shell_quote=False),
         ]
