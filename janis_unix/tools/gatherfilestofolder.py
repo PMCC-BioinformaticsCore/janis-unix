@@ -28,7 +28,6 @@ class GatherFilesToFolder(UnixTool):
                 "inp",
                 Array(File),
                 prefix="cp",
-                separate_value_from_prefix=False,
                 position=1,
             ),
         ]
