@@ -1,3 +1,4 @@
+from typing import Optional
 from janis_core import (
     Array,
     File,
@@ -30,6 +31,11 @@ class GatherFilesToFolder(UnixTool):
                 prefix="cp",
                 position=1,
             ),
+            ToolInput(
+                "inp2",
+                Array(File, optional=True),
+                position=2,
+            ),
         ]
 
     def outputs(self):
@@ -38,7 +44,7 @@ class GatherFilesToFolder(UnixTool):
     def arguments(self):
         return [
             ToolArgument("mkdir output_folder;", position=0, shell_quote=False),
-            ToolArgument("output_folder", position=2, shell_quote=False),
+            ToolArgument("output_folder", position=10, shell_quote=False),
         ]
 
     def bind_metadata(self):
