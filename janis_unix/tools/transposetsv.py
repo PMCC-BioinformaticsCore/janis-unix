@@ -23,16 +23,15 @@ class TransposeTsv(UnixTool):
 
     def inputs(self):
         return [
-            ToolInput("inp", Tsv, position=2),
+            ToolInput("inp_tsv", Tsv, position=2),
             ToolInput(
                 "outputFilename",
                 Filename(
-                    InputSelector("inp", remove_file_extension=True),
+                    InputSelector("inp_tsv", remove_file_extension=True),
                     suffix=".transposed",
                     extension=".tsv",
                 ),
-                prefix=">",
-                position=3,
+                position=4,
             ),
         ]
 
@@ -61,6 +60,7 @@ END {\n\
                 shell_quote=False,
             ),
             ToolArgument("awk -f tst.awk ", position=1, shell_quote=False),
+            ToolArgument(">", position=3, shell_quote=False),
         ]
 
     def bind_metadata(self):
