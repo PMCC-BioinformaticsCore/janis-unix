@@ -8,6 +8,7 @@ from janis_core import (
     InputSelector,
     ToolArgument,
     Directory,
+    String,
 )
 
 from .unixtool import UnixTool
@@ -26,25 +27,25 @@ class GatherFilesToFolder(UnixTool):
     def inputs(self):
         return [
             ToolInput(
-                "inp",
+                "inp_files",
                 Array(File),
-                prefix="cp",
-                position=1,
+                position=2,
             ),
             ToolInput(
-                "inp2",
-                Array(File, optional=True),
-                position=2,
+                "output_dir", String(optional=True), default="output_dir", position=8
             ),
         ]
 
     def outputs(self):
-        return [ToolOutput("out", Directory, selector="output_folder")]
+        return [ToolOutput("out", Directory, selector=InputSelector("output_dir"))]
 
     def arguments(self):
         return [
-            ToolArgument("mkdir output_folder;", position=0, shell_quote=False),
-            ToolArgument("output_folder", position=10, shell_quote=False),
+            ToolArgument("mkdir tmpdir;", position=0, shell_quote=False),
+            ToolArgument("cp", position=1, shell_quote=False),
+            ToolArgument("tmpdir", position=5, shell_quote=False),
+            ToolArgument(";", position=6, shell_quote=False),
+            ToolArgument("mv tmpdir", position=7, shell_quote=False),
         ]
 
     def bind_metadata(self):
