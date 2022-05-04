@@ -11,3 +11,4 @@ from .hello import HelloWorkflow
 from .uncompressarchive import UncompressArchive
 from .transposetsv import TransposeTsv
 from .gatherfilestofolder import GatherFilesToFolder
+from .localisefolder import LocaliseFolder
